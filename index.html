@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Win Big Cache Out</title>
+
+		<meta name="description" content="When to cache and when not to using php">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-overpass2 theme-color-silver-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="fc395fae47e8512d9d860ef90416d729"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 210px; height: auto;" data-block-id="e4d27418512838df5bdcb3cca2dab5c3"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="text-align: center; font-size: 140%; z-index: 11;">
+<h1>Win Big Cache Out</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="22d4cff5027de663c419b69c431d88f9" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 181px; top: 350px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p>By: Ashley Hutson</p>
+
+<p><a href="https://joind.in/talk/0e5d5" target="_blank">https://joind.in/talk/0e5d5</a></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="03645812c90dbb7bb1eb3919871aa481" style="min-width: 30px; min-height: 30px; width: 1091px; height: 139px; left: -65px; top: 1px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1868" data-natural-height="238" style="" data-lazy-loaded="" data-src="win-big-cache-out/5ad17b4bcce26a25f24179c93f6ab30b.jpg"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="5fb36e99c00f84f76ac20d1a19e97e09" style="min-width: 30px; min-height: 30px; width: 402px; height: 140px; left: 0px; top: 1px;"><div class="sl-block-content" style="z-index: 14;"><img style="" data-natural-width="810" data-natural-height="282" data-lazy-loaded="" data-src="win-big-cache-out/fc6e83e0c5252f8e2c408db1fd797ab3.png"></div></div></section><section data-id="0deee84991e37c3f49f562bd4cee2caf"><div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 105px; height: auto;" data-block-id="ae313e9452c9c413c20e3c60def66c32"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 11;">
+<h2 style="font-size:1.9em">WHO AM I?</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 210px; height: auto;" data-block-id="a5458f4756c70edf842a05a5b2a58844"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 12;">
+<ul>
+	<li>DevOps guru</li>
+	<li>Software Engineer
+	<ul>
+		<li>PHP(first and foremost)</li>
+		<li>JS/Node</li>
+		<li>GoLang</li>
+	</ul>
+	</li>
+	<li>Online Teacher</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="8479646b0c82d9bc296a00c9de6634a5" style="min-width: 30px; min-height: 30px; width: 339px; height: 452px; left: 566px; top: 99px;"><div class="sl-block-style" style="z-index: 13; transform: rotate(360deg);"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="720" data-natural-height="960" data-lazy-loaded="" data-src="win-big-cache-out/3a07d7e0f3de162f0237695dddee5289.jpg"></div></div></div></section><section class="stack" data-id="69c1d367b3a7bedd10e2b258a9c04912"><section data-id="b1f586b77398a63b6a1adaa90edadef8"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="4e03bf0b99bf4cee60f6daadb9949553"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Different Types of Caching</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 230px; height: auto;" data-block-id="d282ae0971fadf1415efc76c8d71af9f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>You have two basic options</p>
+
+<p>File based (flat file, database(non memory))</p>
+
+<p>Memory based(redis, memcached)</p>
+</div></div></section><section data-id="1b607911f61e373d5efdf2ef277e4d76"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="7e06985a18b6a297a511eb5fc8390228"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>File Based</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="2b6da30948982b2414a1d3e437d4a938" style="min-width: 30px; min-height: 30px; width: 538px; height: 289px; left: 213px; top: 102px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="679" data-natural-height="365" data-lazy-loaded="" data-src="win-big-cache-out/b411ff64963af2858f7fedf8628b62d1.PNG"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="7a1194dc386d9150758d986644024c9f" style="min-width: 30px; min-height: 30px; width: 536px; height: 284px; left: 214px; top: 407px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="825" data-natural-height="437" data-lazy-loaded="" data-src="win-big-cache-out/19cbe6866cf21ff980094fc3b99834db.PNG"></div></div></section><section data-id="9395160ec24315b9dcf05f8226987c26"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="7dadb7264d3f899c8ca3b38749b81522"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;" dir="ui">
+<h2>Memory Based</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="377732398f301bb632d20f413092967e" style="min-width: 30px; min-height: 30px; width: 599px; height: 306px; left: 186px; top: 89px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="664" data-natural-height="339" data-lazy-loaded="" data-src="win-big-cache-out/0aa2f2a74dae8b3a581ea1166354121a.PNG"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="e0fc6e448afb89f7a7baf78c648dff6c" style="min-width: 30px; min-height: 30px; width: 606px; height: 273px; left: 179px; top: 410px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="779" data-natural-height="351" data-lazy-loaded="" data-src="win-big-cache-out/0367fc06eddc091d820cc481fbbe3847.PNG"></div></div></section></section><section class="stack" data-id="778151a598c7fe390873913a9d3eff7c"><section data-id="88e5d809ff81bdf24ce924a3441b6e41"><div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 105px; height: auto;" data-block-id="f7bd6fb496cc968be86cae5af39c213f"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Pros</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 210px; height: auto;" data-block-id="e760e082d340fb89e01787ec80f591f0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 11;">
+<ul>
+	<li style="color:rgb(17, 17, 17)">Faster response times</li>
+	<li style="color:rgb(17, 17, 17)">Save on processing costs</li>
+	<li style="color:rgb(17, 17, 17)">Save money on bandwidth costs</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 105px; height: auto;" data-block-id="a925ab5277b6ae0826c0a7cdeb3bec7e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 12;">
+<h2>Cons</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 210px; height: auto;" data-block-id="c2bdb99c5e897ed0da9f725ce058e832"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 13;">
+<ul>
+	<li>Overcacheing</li>
+	<li>Knowing exactly what can be cached takes time</li>
+	<li>Extra pieces to maintain</li>
+</ul>
+</div></div></section><section data-id="4a20f693809b9f9b21a717816caf64ca"><div class="sl-block" data-block-type="text" style="width: 806px; left: 93px; top: 64px; height: auto;" data-block-id="66a4441bf1649df125eeb747b1f39dcc"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Key Management Strategies</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 230px; height: auto;" data-block-id="0784b2961526e4b783c0b8205e8c5381"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 154%;">
+<ul>
+	<li>Strong keys</li>
+	<li>Easy to recreate</li>
+	<li>No overlaps possible</li>
+</ul>
+</div></div></section><section data-id="040ecea371f9ab4d46d8d4317e1f7722"><div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 84px; height: auto;" data-block-id="5a05408c41ee6922a8d98d1278bdf1bf"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 11;">
+<h2>Strong Keys</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 125px; height: auto;" data-block-id="f044d4c15e4fabe007f728603d068988"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 12; text-align: left;">
+<ul>
+	<li>Use combinations of values</li>
+	<li>Use everything you have access to</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="4f47d3a51b0de94a6bea5b4c70bd8048" style="min-width: 30px; min-height: 30px; width: 500px; height: 490px; left: 448px; top: 70px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre><code>&lt;?php
+
+// data returned from api call of animals
+$arr = [
+    'id' =&gt; '12',
+    'name' =&gt; 'poodle',
+    'description' =&gt; 'a dog',
+];
+
+// Worst key
+$key = time() . $arr['id'];
+
+// Bad key
+$key = 'dog' . $arr['name'];
+
+// Good Key but to strong and not specific enough
+$key = $arr['id'] . $arr['name'] . $arr['description'];
+
+// Perfectly good Key
+$key = 'dogs' . $arr['id'];</code></pre></div></div></section><section data-id="5107dfbbd1c1dab52e8e7afdcd0af1df"><div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 84px; height: auto;" data-block-id="c18f6ca8facaa4caa0037b91400e7f24"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Strong Keys (cont)</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 125px; height: auto;" data-block-id="a874ba723d882e36189d7e0e306727c2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ul>
+	<li>Use SQL</li>
+	<li>This method is a bit of overkill.</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 500px; height: 490px; left: 448px; top: 70px;" data-block-id="6fbd15dd9622bd712d26c0ab730daff2"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>&lt;?php
+$sql = 'select * from animals where id = 11';
+
+// Good key using your sql query
+$key = 'dogs' . $sql;</code></pre></div></div></section><section data-id="0ce700fc5fb973622c41dd6980c3a9f5"><div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 84px; height: auto;" data-block-id="0799f117774a09ea1643c1f2b61e1dac"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Easy to recreate</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 125px; height: auto;" data-block-id="27b88954424336d0bca9855f012415a4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 12; text-align: left;">
+<ul>
+	<li>Values should not constantly be changing</li>
+	<li>If there are to many variations, you may just not be able to cache</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 500px; height: 490px; left: 452px; top: 70px;" data-block-id="8f54fc283a0d6ed8acdae6f88ef13ccf"><div class="sl-block-content fragment fade-left" data-highlight-theme="github-gist" style="z-index: 13;" data-fragment-index="1"><pre><code>&lt;?php
+
+// data keeps changing but still cacheable
+$arr = [
+    'id' =&gt; '12',
+    'name' =&gt; 'poodle',
+    'description' =&gt; 'a dog',
+];
+
+// Cache based on time example of 2 minutes
+$ttl = 60 * 2;</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 367px; height: auto;" data-block-id="7d7efc3b4826fa13358d32f192fc4ddb"><div class="sl-block-content fragment fade-up" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 14;" data-fragment-index="0">
+<h2>What to do if not Possible but cacheable?</h2>
+</div></div></section></section><section data-id="0879ad657aaca06cd584978f2c9f0685"><div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 105px; height: auto;" data-block-id="4866cb0d12c4af077affb5e94990236f"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Redis</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 210px; height: auto;" data-block-id="0df6d58cb1c84c4543047e78a9aecd49"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 11;">
+<ul>
+	<li style="color:rgb(17, 17, 17)">Store up to <span style="color:rgb(36, 39, 41)">512MB per entry</span>
+</li>
+	<li style="color:rgb(17, 17, 17)"><span style="color:rgb(36, 39, 41)">Has persistence built in</span></li>
+	<li style="color:rgb(17, 17, 17)"><span style="color:rgb(36, 39, 41)">Has clustering built in (3.0+)</span></li>
+	<li>Handles memory better</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 105px; height: auto;" data-block-id="8d3076e2b27307c1d514e96ded593fba"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 12;">
+<h2>Memcached</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 210px; height: auto;" data-block-id="267f0062b1b7abfbdf7685baa798ceda"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 13;">
+<ul>
+	<li>Store up to 1MB per entry</li>
+	<li>No persistence built in</li>
+	<li>No scaling tools out of the box</li>
+	<li>Does not give back outdated memory</li>
+</ul>
+</div></div></section><section data-id="c7009e9e8b4e3ec19e77626a006f80e0"><div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 90px; height: auto;" data-block-id="0fdc418ead96484d5aa6068046d8dbff"><div class="sl-block-content" data-placeholder-tag="h1" style="font-size: 200%; text-align: center; z-index: 10; line-height: 1.768;" data-placeholder-text="Text" data-has-line-height="">
+<h1>Session Cache<br>
+KEY BASED CACHE<br>
+Web Cache</h1>
+</div></div></section><section class="stack" data-id="6fb6151087a24c773b9330077b5f57cc"><section data-id="17373a57bf4950205a39db613df8f9a9"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 28px; height: auto;" data-block-id="def18c7c1916d17579f9d2e9ff096c80"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Session Caching</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="3ef325fab704d26e3efc4fb8beae5e7f" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>This is used for calls that have state.</li>
+	<li>Many applications in PHP use sessions, especially many CMS platforms.</li>
+	<li>Save time and allow for scalability.</li>
+</ul>
+</div></div></section><section data-id="0a9c79a7f43341369a18997fc18f2005"><div class="sl-block" data-block-type="code" style="width: 806px; height: 350px; left: 80px; top: 140px;" data-block-id="a6d538150e150fcbbbe6f8b5e2f9a294"><div class="sl-block-content" style="z-index: 10;" data-highlight-theme="github-gist"><pre><code>&lt;?php
+
+// Update these lines in your php.ini
+session.save_handler = redis
+session.save_path    = tcp://127.0.0.1:6379</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 28px; height: auto;" data-block-id="4accc9973a537bcc16c41590bf42f68e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;" dir="ui">
+<h2>Change at Php INI</h2>
+</div></div></section><section data-id="a18cec95550efc2ff1dc48a547988abb">
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 28px; height: auto;" data-block-id="f03d7ee338a2cd58a1d43c93444c1018"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui">
+<h2>Change In code</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 800px; height: 430px; left: 80px; top: 140px;" data-block-id="1100b839f366f9e294134cee7d691759"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>&lt;?php
+
+// Set session handler in code redis as an example
+ini_set('session.save_handler', 'redis');
+ini_set('session.save_path',    'tcp://127.0.0.1:6379');
+
+// Don't forget to sesssion_start()
+
+session_start();</code></pre></div></div></section></section><section class="stack" data-id="f5396d1756665537f478b858558aa928"><section data-id="ede4caf61f7efa873e8582c17846869e"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 28px; height: auto;" data-block-id="76877266d261de191ddaad0a55c2f5a4"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Key based Caching</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="f574b03791773fc98a878f1692f884ea" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 210px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>This does not mean using the database as a session storage</p>
+
+<p> </p>
+
+<p>Actually just don't do that use something else</p>
+</div></div></section><section data-id="5db48263ff5cb6e42b8a6039c5e61fd2"><div class="sl-block" data-block-type="code" data-block-id="2d6ce4a1aa41b207aeb2bee20ac9f5f1" style="min-width: 30px; min-height: 30px; width: 806px; height: 395px; left: 77px; top: 140px;"><div class="sl-block-content" style="z-index: 11;" data-highlight-theme="github-gist"><pre><code>&lt;?php 
+
+use phpFastCache\CacheManager;
+
+$cache = CacheManager::Memcached();
+
+$key = generateKeyFunction();
+
+// try to get from Cache first.
+$resultsItem = $cache-&gt;getItem($key)
+
+if(!$resultsItem-&gt;isHit()) {
+    // Add in time based arguments here as well
+    $resultsItem-&gt;set($cURL-&gt;get("http://www.youtube.com/api/json/url/keyword/page"))-&gt;expireAfter(3600*24);
+    $cache-&gt;save($resultsItem);
+}
+
+foreach($results as $video) {
+    // Output Your Contents HERE
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 28px; height: auto;" data-block-id="2735f7789fdfcc2fdcfb85a8dfc5c5bc"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 12;" dir="ui">
+<h2>PHPFastCache</h2>
+</div></div></section><section data-id="ab0541153950c8285131620108a1d0d8"><div class="sl-block" data-block-type="code" style="width: 806px; height: 455px; left: 80px; top: 175px;" data-block-id="edcafd9d5de9dc6167fd947f030b6b40"><div class="sl-block-content" style="z-index: 10;" data-highlight-theme="github-gist"><pre><code>&lt;?php
+// This here is a redis client Can be many alternatives
+$redis = new Redis();
+$redis-&gt;connect('redis_host', 6379);
+
+$cacheDriver = new \Doctrine\Common\Cache\RedisCache();
+$cacheDriver-&gt;setRedis($redis);
+
+// get id and name from input
+$key = 'objType' . 'id' . 'name';;
+
+$obj = $cacheDriver-&gt;get($key);
+
+if(null !== \json_decode($obj)){
+    return $obj;
+} 
+
+// Fetch data from source and set and return
+
+$obj = fetchDataFunction();
+$key = 'objType' . $obj-&gt;id . $obj-&gt;name;
+
+// Serialize the object for most cases
+$cacheDriver-&gt;save($key, \json_encode($obj));
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 70px; height: auto;" data-block-id="7ca9bb07ad3ee0e7ef6347d6368d34b5"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;" dir="ui">
+<h2>Doctrine Cache</h2>
+</div></div></section><section data-id="d321bee88bf0a2c13d2eda3a342c0e95"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 28px; height: auto;" data-block-id="f1699e06130800377a27773df2aa45d0"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Doctrine cache also supports</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 140px; height: auto;" data-block-id="3327dba81befac4cfaa337bcafe9e033"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Memcached</li>
+	<li>Files</li>
+	<li>APC</li>
+	<li>Xcache</li>
+	<li>Write your own</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="2f7ee43cc0e37b2f977b46aaadf3eee7" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 177px; top: 490px;"><div class="sl-block-content fragment fade-up" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p>Be warned though it is very heavy weight</p>
+</div></div></section><section data-id="a9833b9626a84a3b4f27bb87563c00b7">
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 28px; height: auto;" data-block-id="f219d79cce91f84abc0afa854e53e2c6"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;" dir="ui">
+<h2>Use raw alternatives</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="27daaa6ff14b6556a577231b5b133c57" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 550px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" dir="ui">
+<p>https://github.com/nrk/predis</p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 806px; height: 455px; left: 77px; top: 140px;" data-block-id="3924e698abcf1df835a91e65761c75b1"><div class="sl-block-content" style="z-index: 13;" data-highlight-theme="github-gist"><pre><code>&lt;?php
+// This here is a redis client Can be many alternatives
+$client = new \Predis\Client();
+
+// get id and name from input
+$key = 'objType' . 'id' . 'name';;
+
+$obj = $client-&gt;get($key);
+
+if(null !== \json_decode($obj)){
+    return $obj;
+} 
+
+// Fetch data from source and set and return
+
+$obj = fetchDataFunction();
+$key = 'objType' . $obj-&gt;id . $obj-&gt;name;
+
+// Serialize the object for most cases
+$client-&gt;set($key, \json_encode($obj));
+</code></pre></div></div></section><section data-id="62f02e7fe28475f8b85f2f8df668d6f0"><div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 105px; height: auto;" data-block-id="35b10ed804cc72c6b5e15a0ad8e2eefe"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>PREDIS</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 210px; height: auto;" data-block-id="a084db9d67b33767443995fd8af952c4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 11;">
+<ul>
+	<li>Built completely in PHP</li>
+	<li>A bit slower (less of an issue if using phpiredis extension)</li>
+	<li>Easier code support</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 105px; height: auto;" data-block-id="2ebdfa49becd0151f40f6175f532361a"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 12;">
+<h2>PHPREDIS</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 210px; height: auto;" data-block-id="5d056cac893fe4b1c0b71505ea323c9b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 13;">
+<ul>
+	<li>C based extension</li>
+	<li>Faster as it runs in C</li>
+	<li>Harder to setup and manage</li>
+</ul>
+</div></div></section><section data-id="d9822ab4ae1ac1b4afca8261a1d829bf"><div class="sl-block" data-block-type="text" style="width: 806px; left: 86px; top: 49px; height: auto;" data-block-id="e77fa045e1798df22b1cf4a316b7b224"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>BENCHmarks</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="30e3adb0235db68e06e36107a4c56bdb" style="min-width: 30px; min-height: 30px; width: 806px; height: 449px; left: 80px; top: 140px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="xml"><code>+--------+--------+-------+-----------------+---------------------+-------+
+| group  | name   | count | time            | single              | cost  |
++--------+--------+-------+-----------------+---------------------+-------+
+| SET    | Redis  | 50000 | 1.7460916042328 | 3.4921832084656E-5  | 100 % |
+| SET    | Predis | 50000 | 1.7508194446564 | 3.5016388893127E-5  | 100 % |
++--------+--------+-------+-----------------+---------------------+-------+
+| EXISTS | Redis  | 50000 | 1.5275919437408 | 3.0551838874817E-5  | 100 % |
+| EXISTS | Predis | 50000 | 1.5728967189789 | 3.1457934379578E-5  | 103 % |
++--------+--------+-------+-----------------+---------------------+-------+
+| GET    | Redis  | 50000 | 1.5822939872742 | 3.1645879745483E-5  | 100 % |
+| GET    | Predis | 50000 | 1.6208076477051 | 3.2416152954102E-5  | 102 % |
++--------+--------+-------+-----------------+---------------------+-------+
+| DEL    | Redis  | 50000 | 1.5144150257111 | 3.0288300514221E-5  | 100 % |
+| DEL    | Predis | 50000 | 1.6063549518585 | 3.212709903717E-5   | 106 % |
++--------+--------+-------+-----------------+---------------------+-------+
+| HMSET  | Redis  | 50000 | 1.8996987342834 | 3.7993974685669E-5  | 103 % |
+| HMSET  | Predis | 50000 | 1.847585439682  | 3.695170879364E-5   | 100 % |
++--------+--------+-------+-----------------+---------------------+-------+
+| HMGET  | Redis  | 50000 | 1.9222128391266 | 3.8444256782532E-5  | 100 % |
+| HMGET  | Predis | 50000 | 1.9729597568512 | 3.9459195137024E-5  | 103 % |
++--------+--------+-------+-----------------+---------------------+-------+
+| ALL    | Redis  | 50000 | 10.907937288284 | 0.00021815874576569 | 100 % |
+| ALL    | Predis | 50000 | 11.096460580826 | 0.00022192921161652 | 102 % |
++--------+--------+-------+-----------------+---------------------+-------+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="265bc2572f2d004fc862a3f8b4e2b898" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 171px; top: 612px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p><a href="https://github.com/cheprasov/php-redis-client-vs-predis-test" target="_blank">https://github.com/cheprasov/php-redis-client-vs-predis-test</a></p>
+</div></div></section><section data-id="cfe04a162c16394e318f0b1bcab2150e">
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 28px; height: auto;" data-block-id="be2e43c8d6f03e7a994e0ead0f952d2f"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui">
+<h2>API usage</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 560px;" data-block-id="bdcfd9850828eef7dca4d99c0a703a7e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><a href="https://github.com/Kevinrob/guzzle-cache-middleware" target="_blank">https://github.com/Kevinrob/guzzle-cache-middleware</a></p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 806px; height: 315px; left: 77px; top: 140px;" data-block-id="ff1459e5be68e255e6a81134b7343ca9"><div class="sl-block-content" style="z-index: 13;" data-highlight-theme="github-gist"><pre><code>use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use Kevinrob\GuzzleCache\CacheMiddleware;
+
+// Create default HandlerStack
+$stack = HandlerStack::create();
+
+// Add this middleware to the top with `push`
+$stack-&gt;push(new CacheMiddleware(), 'cache');
+
+// Initialize the client with the handler option
+$client = new Client(['handler' =&gt; $stack]);</code></pre></div></div></section><section data-id="20b73341f089a90d67dfdff5ae852b17"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 28px; height: auto;" data-block-id="e3fb05a6c77f7359bdb865d8f488355a"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Third Party Tools</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 140px; height: auto;" data-block-id="6b1f53027900ae30825ec3b4ab4c02ba"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>ScaleArc/Heimdall</li>
+	<li>Please someone build something like this but open source</li>
+	<li>Heimdall used to be open :(</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="07ab5d8336704d759d9731621041ea66" style="min-width: 30px; min-height: 30px; width: 576px; height: 344px; left: 192px; top: 305px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1128" data-natural-height="674" data-lazy-loaded="" data-src="win-big-cache-out/0efc9bacfe6ab2fd43b56fc76a3e59e3.jpg"></div></div></section><section data-id="f34bb6efe0b1b3694217c1e8e7761648"><div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 105px; height: auto;" data-block-id="a14d833ef9d6d6f5e1e7b91207a87275"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Query Cache</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 210px; height: auto;" data-block-id="22281bda1f15c634426209d738441c90"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 11;">
+<ul>
+	<li>Cache only the query itself so it does not need to be regenerated</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 105px; height: auto;" data-block-id="a29aae671e758342d549bc9bdee6bc5c"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 12;">
+<h2>Results Caching</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 210px; height: auto;" data-block-id="2cdc437dc77f01ecc3e0b31d94f91b1d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 13;">
+<ul>
+	<li>Fully caching objects</li>
+</ul>
+</div></div></section><section data-id="4310127c7d31050a4ff2592bd4fee7f4"><div class="sl-block" data-block-type="text" style="width: 806px; left: 67px; top: 28px; height: auto;" data-block-id="364b36fd0d68ec9f876e707e5b74d452"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Cache Busting</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 140px; height: auto;" data-block-id="bf981cf913ef3d8de16b4b149d9732ab"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>Always make sure to clear the cache</li>
+	<li>Strategies around this topic are varried</li>
+</ul>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p>If you are using Doctrine, there is a Second Level Cache still experimental</p>
+
+<p><a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/second-level-cache.html" target="_blank">http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/second-level-cache.html</a></p>
+</div></div></section><section data-id="055c3448819813b40b1593f17ea1be6b"><div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 70px; height: auto;" data-block-id="89f4a1f30d79f3ec79d243dcee68e539"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;" dir="ui">
+<h2>Examples of OverCaching</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="d6818f38e15509bfe341cd0d60c9a8cc" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 153px; top: 210px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<ul>
+	<li>Using caching for logged in users</li>
+	<li>Caching components that are constantly changing</li>
+	<li>All of this can goes back to using better keys!</li>
+</ul>
+</div></div></section></section><section class="stack" data-id="ce67768c11f8d99216acd5dca569d106"><section data-id="ed4008f58f82bbf859d7ad25a2e91a6f"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="716039afff740972ebf451068acee2ae"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Whole page caching</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 696px; height: 419px; left: 132px; top: 183px;" data-block-id="b5a36cdfebee9d0f581987bba3c464ea"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="696" data-natural-height="419" style="" data-lazy-loaded="" data-src="win-big-cache-out/9e4fe5680af73439f14219d8e7ebc0c5.jpg"></div></div></section><section data-id="e007564e31f9f80c674566717e98e6b0"><div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 105px; height: auto;" data-block-id="34648e5233637fd094be4d23fbc79bc7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Varnish/Nginx (etc)</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 210px; height: auto;" data-block-id="d8bfb1d9f54f70d5fce49f86382af7c3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 11;">
+<ul>
+	<li>Sits between End User and Web Server</li>
+	<li>Serves whole web page effortlessly</li>
+	<li>Can be configured for key usage at web layer or configured for time based</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 105px; height: auto;" data-block-id="a152fa84d58bda3850350dd0dcc0e3d4"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 12;">
+<h2>In Memory/File</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 210px; height: auto;" data-block-id="1d4387026a41770dd83dbf4a35011f46"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 13;">
+<ul>
+	<li>Use Redis using values as keys for page generation</li>
+	<li>Best if using templating like twig</li>
+</ul>
+</div></div></section><section data-id="4c1e97995664c1b7d044ccaeb226e02c"><div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 105px; height: auto;" data-block-id="8c48cea991a6f0ec5d38abf88513658f"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Cloud CDN Cache</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 48px; top: 210px; height: auto;" data-block-id="0f3e6830239af62d2fd8c18d85c562ea"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 11;">
+<ul>
+	<li>Can save files not even in your infrastructure</li>
+	<li>Saves computing resources for managed cost</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 105px; height: auto;" data-block-id="474c4e66fdb1386b7e1543f993b025cd"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 12;">
+<h2>DNS Caching</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 528px; top: 210px; height: auto;" data-block-id="2b68a9ffdf739f8de697fb1e6264aacd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 13;">
+<ul>
+	<li>All  servers do it</li>
+	<li>Can cause issues with some DNS based databases</li>
+</ul>
+</div></div></section><section data-id="c54530dce6783c1f7ded8d73bd45a809"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="250601055f73f28ea9581c5cd1b6eaa1"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>CMS Caching</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 230px; height: auto;" data-block-id="ca28c8d89e519ba59ddf50911a5a4b73"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>Wordpress</li>
+	<li>Drupal</li>
+	<li>Joomla</li>
+	<li>Plugins Plugins Plugins</li>
+</ul>
+</div></div></section></section><section class="stack" data-id="f5bd92dcface4bf5ee91cb5ad6905d40"><section data-id="c882cc6353535d58781efb3f82473889"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="b1fa15570b8733dc6a627d6ea7973acf"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Partial Page Caching</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="3b66ae4af3bc684a5706407d942fc2af" style="min-width: 30px; min-height: 30px; width: 806px; height: 453px; left: 90px; top: 168px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="640" data-natural-height="360" data-lazy-loaded="" data-src="win-big-cache-out/8305c1d9b015493406a5ad7748759803.jpg"></div></div></section><section data-id="d1dfb0b41e707740406813d3db91fdcd"><div class="sl-block" data-block-type="code" style="width: 806px; height: 350px; left: 77px; top: 280px;" data-block-id="6f9cb29a3509501392beeb8b74dbac43"><div class="sl-block-content" style="z-index: 10;" data-highlight-theme="github-gist"><pre><code>// twig you can also set time to live values for your cache
+{% cache %}
+    {% for block in entry.myMatrixField %}
+        &lt;p&gt;{{ block.text }}&lt;/p&gt;
+    {% endfor %}
+{% endcache %}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 70px; height: auto;" data-block-id="dee2cf9b88e797366ca4f5c6bb0f559e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;" dir="ui">
+<h2>Using Twig Caching</h2>
+</div></div></section><section data-id="8612a664ab6e195a055769a36b6315de"><div class="sl-block" data-block-type="code" style="width: 806px; height: 350px; left: 77px; top: 280px;" data-block-id="b78ba3f1ce2eed4591598ddd41e11b62"><div class="sl-block-content" style="z-index: 10;" data-highlight-theme="github-gist"><pre><code>// twig you can also set time to live values for your cache
+{% cache %}
+    {% for block in entry.myMatrixField %}
+        &lt;p&gt;{{ block.text }}&lt;/p&gt;
+    {% endfor %}
+{% endcache %}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 70px; height: auto;" data-block-id="7e67d9e35bd8a9486252abae9ab1f490"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;" dir="ui">
+<h2>Using Keys</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 800px; height: 473px; left: 80px; top: 200px;" data-block-id="ada1cc5a837ece18ffbe9652e85a62a3"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre><code>&lt;?php
+// This here is a redis client Can be many alternatives
+$redis = new Redis();
+$redis-&gt;connect('redis_host', 6379);
+
+$cacheDriver = new \Doctrine\Common\Cache\RedisCache();
+$cacheDriver-&gt;setRedis($redis);
+
+// get id and name from input
+$key = 'objType' . 'id' . 'name';;
+
+$obj = $cacheDriver-&gt;get($key);
+
+if(null !== $obj){
+    return $obj;
+} 
+
+// prerender 
+
+$obj = $this-&gt;render(
+            'article/recent_list.html.twig',
+            array('articles' =&gt; $articles)
+        );
+$cacheDriver-&gt;save($key, $obj);
+</code></pre></div></div></section></section><section class="stack" data-id="5828ef85ee653171015d55d7975b4f28"><section data-id="096d895a282ce0f908562172f1b34dba"><div class="sl-block" data-block-type="image" data-block-id="e843f05f96251c0b93121794ce1adb4a" style="min-width: 30px; min-height: 30px; width: 462px; height: 539px; left: 249px; top: 70px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="600" data-natural-height="700" data-lazy-loaded="" data-src="win-big-cache-out/ca74842268de6bc86705f6d63c649e9b.png"></div></div></section><section data-id="e416cde14ac27dc83583f57c8c5a9e2e"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 28px; height: auto;" data-block-id="3f6156b451a1a074feee6c2466476921"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Building a second level cache</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 140px;" data-block-id="308f0e5938fb21618c1b3d4f26a0fd70"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li>A second level cache is acts as a session layer for your objects.</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 520px; height: 209px; left: 220px; top: 280px;" data-block-id="60334774caa98e976d5bf1beacca49d8"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="520" data-natural-height="209" data-lazy-loaded="" data-src="win-big-cache-out/f80b43e22363baef0f950289278980ef.jpg"></div></div></section><section data-id="474f38faef40b110d22e8e78b6b376d8"><div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 84px; height: auto;" data-block-id="eced5bf36285dd6040f1c4e88265674f"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 11;">
+<h2>What I started with</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 126px; height: auto;" data-block-id="0addffe83ae350fbab7fd2b8d991a60b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 12; text-align: left;">
+<ul>
+	<li>All cache keys were only based on http requests and using sql as keys.</li>
+	<li>Made cache invalidation near impossible.</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 500px; height: 490px; left: 448px; top: 70px;" data-block-id="0bddc31e7a26f04a9340f51b145a0708"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre><code>$fullQuery = 'query generated by illuminate';
+
+Cache::fetch(
+    $redisClient,
+    \sha1($fullQuery),
+    function () use ($client, $fullQuery) {
+        $response = $client-&gt;get('/my/api/call', [
+            'query' =&gt; $fullQuery,
+        ]);
+
+        return [
+            1 * Time::MINUTE,
+            \json_decode((string) $response-&gt;getBody()),
+        ];
+    }
+);</code></pre></div></div></section><section data-id="f9e0e24636f9bab64156b3a6b5d28813"><div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 28px; height: auto;" data-block-id="f77c876ab3e86e4e2acf57fad9c4f024"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>What I started with</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 137px; height: auto;" data-block-id="334275ca9616f10dfb1d78a354d5cec0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ul>
+	<li>A base cache function to use to simplify the process.</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 868px; height: 350px; left: 46px; top: 245px;" data-block-id="9fe73413723cd42c62dd5f5004dc302f"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>public static function fetch(PredisCachePool $pool, string $cacheKey, callable $fetchFreshData)
+{
+    if ($pool-&gt;hasItem($cacheKey)) {
+        return $pool-&gt;getItem($cacheKey)-&gt;get();
+    }
+
+    // Expect to receive a tuple
+    [$ttl, $value] = $fetchFreshData();
+
+    $item = $pool-&gt;getItem($cacheKey);
+    $item-&gt;set($value);
+    $item-&gt;expiresAfter($ttl);
+    $pool-&gt;save($item);
+
+    return $value;
+}</code></pre></div></div></section><section data-id="08ed5b1d7f52aaf266bcd94f506343ef"><div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 84px; height: auto;" data-block-id="8083a20cc50dd4ace1052c8bc91bef49"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Creating a TTL file</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 29px; top: 126px; height: auto;" data-block-id="061db7857c319aaa821474628b17bea5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ol>
+	<li>Figure out how long you can possibly want to hold a stored piece of data</li>
+	<li>Create a central location or set of files for your cache</li>
+</ol>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 500px; height: 490px; left: 448px; top: 70px;" data-block-id="3d2eb12e4db7877a3969efb5fe5e7a16"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>&lt;?php
+
+namespace Application\Enum;
+
+use Skyzyx\UtilityPack\Time;
+
+class ObjectCacheTtl
+{
+    public const CAT = 1 * Time::MINUTE;
+    public const DOG = 1 * Time::MINUTE;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 594px;" data-block-id="b2c9131949f6414a86226d9cf982cfd1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p>Highly recommend making your code readable, even your ttl file.</p>
+</div></div></section><section data-id="3ab3cb17cf195446eeae5af7e9f32b7d"><div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 49px; height: auto;" data-block-id="a5df89a3c4ea0900eb3e88a1675a3cb5"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2 style="text-align: center;">Creating a Cache Key File</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 156px; height: auto;" data-block-id="b31ec9ed92bd5134efe8638ec0d2802d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ol>
+	<li>Create a single enum to manage object or data types</li>
+</ol>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 800px; height: 280px; left: 87px; top: 280px;" data-block-id="71237af6d77aafc83019b88855dbe714"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>namespace Application\Enum;
+
+class ObjectType
+{
+    public const DOG = 'dog';
+    
+    public const CAT = 'cat';
+}</code></pre></div></div></section><section data-id="a54ce18c5e7549a79bdc1e35d7d8f5ec"><div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 49px; height: auto;" data-block-id="57f19c34d0230d87dcab4a64254ef3d0"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2 style="text-align: center;">Creating a Cache Key File</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 156px; height: auto;" data-block-id="8c32816bcac4feb9cad4b57d82951aeb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ol>
+	<li>Design all of your keys a name</li>
+	<li>Give all prefixes for cache invalidation</li>
+</ol>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 800px; height: 280px; left: 87px; top: 280px;" data-block-id="7889828bcd367dba7076b461ee01c70d"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>namespace Application\Enum;
+
+class ObjectCache 
+{
+    // Start Dog ------
+    public const DOG = 'mysql.' . ObjectType::DOG . '.%s.%s';
+    
+    public const DOG_ALL = 'mysql.' . ObjectType::DOG . '.ALL.%s';
+    
+    public const DOG_PREFIX = 'mysql.' . ObjectType::DOG . '%s.*';
+    
+    public const DOG_ALL_PREFIX = 'mysql.' . ObjectType::DOG . '.ALL.*';
+}</code></pre></div></div></section></section><section class="stack" data-id="6714ab82952fa7017732d41b1308f6aa"><section data-id="9c256a395a4ef21d62bfd561924cc68a"><div class="sl-block" data-block-type="text" style="width: 413px; left: 281px; top: 28px; height: auto;" data-block-id="73a79f475d984c242e71a2f61fd85eac"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Now we are cooking</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 104px; height: auto;" data-block-id="ea94860d04b42c53f17a23190684fd67"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ul>
+	<li>Now able to update the keys used for those calls.</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 800px; height: 420px; left: 80px; top: 210px;" data-block-id="023d6cc8f0b4af6aa8a98d5b3f15df50"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>$dogId = $this-&gt;getDogIdFromApi();
+$query = $this-&gt;getQueryInformation();
+
+$raw = Cache::fetch(
+    $redis,
+    \sprintf(
+        \Application\Enum\ObjectCache::DOG,
+        E\ObjectType::POUND. '.' . $pound-&gt;id,
+        $dogId 
+    ),
+    static function () use ($client, $dogId, $query) {
+        $response = $client-&gt;get(\sprintf('/my/api/to/call/%s', $dogId), [
+            'query' =&gt; $query,
+        ]);
+
+        return [
+            ObjectCacheTtl::DOG,
+            \json_decode((string) $response-&gt;getBody()),
+        ];
+    }
+);</code></pre></div></div></section><section data-id="156a1101d68e83b054f1996a2a5b2cb5"><div class="sl-block" data-block-type="text" style="width: 413px; left: 281px; top: 28px; height: auto;" data-block-id="9e6a4081d379701363fd6fe18e4976e7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Cache Invalidation</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 104px; height: auto;" data-block-id="d7bf83c10f8b71d646715d09560f102f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ul>
+	<li>Create standard way to invalidate</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 800px; height: 317px; left: 80px; top: 243px;" data-block-id="ec4f32164709c60164f5473c34540111"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>public function deleteCachePatterns(string ...$prefixPattern): void
+{
+    foreach ($prefixPattern as $pattern) {
+        // Delete the single cached entity
+        foreach (new Keyspace($this-&gt;redisClient, $pattern) as $key) {
+            $this-&gt;redisClient-&gt;del($key);
+        }
+    }
+}</code></pre></div></div></section><section data-id="861a8673244bc715b72f04ee08a39053"><div class="sl-block" data-block-type="text" style="width: 413px; left: 281px; top: 28px; height: auto;" data-block-id="1747afd7e7514d82603a01670f5e2846"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Cache Invalidation</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 104px; height: auto;" data-block-id="3cc3aa914c6fcaa3fe492d296a07dde9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ul>
+	<li>On create invalidate your ALL cache</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 800px; height: 317px; left: 80px; top: 243px;" data-block-id="fbe1012092b45ca1c913f0e5136e9631"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>$pound = $this-&gt;getPound();
+
+/** @var CacheBuster $cacheBuster */
+$cacheBuster   = $container['CacheBuster'];
+$cacheKeyPound = E\ObjectType::DOG. '.' . $pound-&gt;id;
+$allDogPattern = \sprintf(E\ObjectCache::DOG_ALL_PREFIX, $cacheKeyPound);
+
+$cacheBuster-&gt;deleteCachePatterns($allDogPattern);</code></pre></div></div></section><section data-id="e1bab67b6c8cee40e2577cb018536ad5"><div class="sl-block" data-block-type="text" style="width: 413px; left: 281px; top: 28px; height: auto;" data-block-id="ada517e17beccbe8541e53f6a057c861"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>Cache Invalidation</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 413px; left: 274px; top: 104px; height: auto;" data-block-id="6fe5d45959bb9f9da5c27f4157c674d5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 11; text-align: left;">
+<ul>
+	<li>On update and delete invalidate ALL and Single</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 800px; height: 317px; left: 80px; top: 243px;" data-block-id="215bace5ab43525b980cec0202707dd7"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre><code>$pound = $this-&gt;getPound();
+$dog   = $this-&gt;getDog();
+
+/** @var CacheBuster $cacheBuster */
+$cacheBuster   = $container['CacheBuster'];
+
+$cacheKeyPound = E\ObjectType::POUND. '.' . $pound-&gt;id;
+$dogPattern  = \sprintf(
+    E\ObjectCache::DOG_PREFIX,
+    $cacheKeyPound,
+    $dog-&gt;id
+);
+
+$allDogPattern = \sprintf(E\ObjectCache::DOG_ALL_PREFIX, $cacheKeyPound);
+
+$cacheBuster-&gt;deleteCachePatterns($dogPattern, $allDogPattern);</code></pre></div></div></section></section><section data-id="6ffc8dc130c9c3a04fd093bd201c79b2"><div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 70px; height: auto;" data-block-id="d68982b5af8f62dcfa450270c826eac5"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Questions!?</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 153px; height: auto;" data-block-id="0d2d27677c2b657effabdbb6a681e84a"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h2>I'll totally answer anything I can</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="744f5b52a1c21671b4b9f210c5701bad" style="min-width: 30px; min-height: 30px; width: 326px; height: 326px; left: 320px; top: 350px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="300" data-natural-height="300" style="" data-lazy-loaded="" data-src="win-big-cache-out/3c037a8f408048b9fb54cc95a140bd0d.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 238px; height: auto;" data-block-id="c4e7fcdc0a717a993e74967ef32d50d1"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 14;">
+<h2>Please rate my talk:</h2>
+
+<h2><a href="https://joind.in/talk/0e5d5" target="_blank">https://joind.in/talk/0e5d5</a></h2>
+</div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1090290,"slug":"win-big-cache-out","title":"Win Big Cache Out","description":"When to cache and when not to using php","width":960,"height":700,"visibility":"all","published_at":"2017-10-10T03:31:33.017Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/92ce7bef202ff19627ee488bd77d8019/thumb.jpg?1518269939","view_count":1,"user":{"id":480246,"username":"ashleyhutson","name":"Ashley Hutson","description":null,"thumbnail_url":"//graph.facebook.com/10208020913134591/picture","paid":true,"pro":false,"lite":true,"team_id":null,"settings":{"id":321979,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"fade","transition":"slide","theme_id":null,"theme_font":"overpass2","theme_color":"silver-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":54,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1518271339624,"font_typekit":null,"font_google":null,"notes":{}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/head.min.js"></script>
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+
+				controls: true,
+				progress: true,
+				history: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+
+				autoSlide: 0 || 0,
+				autoSlideStoppable: true,
+
+				center: false,
+				loop: false,
+				rtl: false,
+
+				transition: "slide",
+				backgroundTransition: "fade",
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js', async: true, callback: function() { hljs.initHighlighting(); hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
